@@ -22,31 +22,22 @@
       </div>
     </div>
     <div class="right">
-      <div class="icons">
-        <div class="search">
-          <i class="fas fa-search"></i>
-        </div>
-        <div class="social">
-          <i class="fab fa-facebook-square"></i>
-          <i class="fab fa-instagram"></i>
-          <i class="fab fa-twitter"></i>
-        </div>
-      </div>
+      <Socials/>
       <div class="img">
         <img src="img/rack.png" alt="Rack">
-      </div>
-      <div class="message">
-        <img src="img/msg.jpg" alt="message icon">
-        <p>Talk to us</p>
       </div>
     </div>
   </section>
 </template>
 
 <script>
+import Socials from '~/components/Socials.vue'
 
 export default {
   layout: 'app',
+  components: {
+    Socials
+  },
   mounted() {
     const nav = document.querySelector('.main-nav');
     nav.classList.remove('text-primary');

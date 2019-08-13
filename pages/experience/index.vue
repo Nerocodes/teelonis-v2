@@ -38,27 +38,19 @@
               <p>Say Hello</p>
           </nuxt-link>
       </div>
-      <div class="icons">
-        <div class="search">
-          <i class="fas fa-search"></i>
-        </div>
-        <div class="social">
-          <i class="fab fa-facebook-square"></i>
-          <i class="fab fa-instagram"></i>
-          <i class="fab fa-twitter"></i>
-        </div>
-      </div>
-      <div class="message">
-        <img src="img/msg.jpg" alt="message icon">
-        <p>Talk to us</p>
-      </div>
+      <Socials/>
     </div>
   </section>
 </template>
 
 <script>
+import Socials from '~/components/Socials.vue'
+
 export default {
   layout: 'app',
+  components: {
+    Socials
+  },
   mounted() {
     const nav = document.querySelector('.main-nav');
     nav.classList.add('text-primary');

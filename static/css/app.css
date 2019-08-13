@@ -207,6 +207,20 @@
   margin-bottom: 3rem;
 }
 
+.icons .search {
+  visibility: hidden;
+}
+
+.social i {
+  cursor: pointer;
+}
+
+.social a {
+  text-decoration: none;
+  color: #333333;
+  z-index: 1;
+}
+
 .homepage .right .message {
   background-color: #f8ddd4;
   width: 350px;
