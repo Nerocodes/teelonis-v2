@@ -382,14 +382,16 @@
 
 .stories .right .image {
   padding-left: 6rem;
+  width: 40%;
 }
 
 .stories .right .image img {
-  width: 60%;
+  width: 100%;
+  max-height: 380px;
 }
 
 .stories .right .text {
-  width: 40%;
+  width: 50%;
   padding-left: 4rem;
   font-family: Nunito-Regular;
   line-height: 1.2;
@@ -1180,8 +1182,13 @@
     width: 100%;
     z-index: 4;
     position: relative;
-    top: 9rem;
-    padding: 0rem 1.5rem;
+    top: 4rem;
+    padding: 1rem 1.5rem;
+    background-color: #F6F4F5ee;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
   }
   
   .homepage .left .text .bold{
@@ -1192,12 +1199,25 @@
   
   .homepage .left .text .bold span {
     font-family: Nunito-ExtraBold;
+    font-size: 1.3rem;
   }
   
   .homepage .left .text .regular {
     font-size: 12px;
     font-family: Nunito-Regular;
     margin-top: 0.5rem;
+  }
+
+  .homepage .left .homepage-btn {
+    padding: 0.5rem 0rem;
+    width: 80%;
+    font-size: 0.8rem;
+  }
+  
+  .homepage .left .homepage-btn:hover {
+    background-color: #f0ac94;
+    border: solid 2px #f0ac94;
+    color: #ffffff;
   }
   
   .homepage .right .img {
@@ -1272,23 +1292,25 @@
     display: flex;
     align-items: center;
     flex-direction: column-reverse;
+    justify-content: flex-end;
     position: absolute;
     top: 4rem;
     right: 0rem;
     background-color: #ffffff;
     width: 85vw;
-    min-height: 80vh;
+    height: 80vh;
   }
   
   .about .right .text {
-    width: 100%;
-    padding: 0rem 1.5rem;
+    width: 250px;
+    padding: 0;
     font-family: Nunito-Regular;
     line-height: 1.2;
+    overflow-y: auto;
   }
   
   .about .right .text .title {
-    font-size: 1.2rem;
+    font-size: 1rem;
     width: 70%;
     font-family: Nunito-ExtraBold;
     margin-bottom: 0.5rem;
@@ -1297,7 +1319,6 @@
   .about .right .text .body {
     font-size: 10px;
     margin-bottom: 0.5rem;
-    display: none;
   }
 
   .about .right .text .mb-3 {
@@ -1319,6 +1340,15 @@
     width: 40%;
     font-family: Nunito-Bold;
     font-size: 10px;
+  }
+
+  .about .right .gift {
+    width: 100%;
+    padding: 1rem;
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
   }
   
   .about .right .gift img {
@@ -1388,25 +1418,29 @@
     display: flex;
     align-items: center;
     flex-direction: column-reverse;
+    justify-content: flex-end;
     position: absolute;
     top: 4rem;
     right: 0rem;
     background-color: #ffffff;
     width: 85vw;
-    min-height: 80vh;
+    height: 80vh;
   }
 
   .stories .right .flex {
     flex-direction: column-reverse;
     position: relative;
-    top: -1rem;
+    top: 1rem;
+    overflow: hidden;
+    padding-bottom: 1rem;
   }
   
   .stories .right .text {
     width: 100%;
-    padding: 0rem 3rem 0rem 1.5rem;
+    padding: 0rem 3rem 1rem 1.5rem;
     font-family: Nunito-Regular;
     line-height: 1.2;
+    overflow-y: auto;
   }
   
   .stories .right .text .title {
@@ -1453,10 +1487,21 @@
 
   .stories .right .image {
     padding: 0rem 3rem 1rem 1.5rem;
+    width: 100%;
   }
   
   .stories .right .image img {
     width: 100%;
+    max-height: 200px;
+  }
+
+  .VueCarousel-dot-container {
+    margin: 0rem !important
+  }
+
+  .VueCarousel-dot {
+    padding: 0.5rem !important;
+    margin: 0rem !important;
   }
   
   .stories .right .icons {
@@ -1518,13 +1563,15 @@
   .experience .right {
     display: flex;
     align-items: center;
-    flex-direction: column-reverse;
+    flex-direction: column;
     position: absolute;
     top: 4rem;
     right: 0rem;
     background-color: #ffffff;
     width: 85vw;
-    min-height: 80vh;
+    height: 80vh;
+    overflow: auto;
+    padding-bottom: 1rem;
   }
 
   .experience .right .flex {
@@ -1534,13 +1581,18 @@
     position: relative;
     top: -2rem;
   }
+
+  .experience .right .links {
+    text-align: center;
+  }
   
   .experience .right .text {
     width: 100%;
-    padding: 0rem;
+    padding: 1rem 2rem 1rem 1rem;
     font-family: Nunito-Regular;
     line-height: 1.2;
     border-right: transparent;
+    font-size: 13px;
   }
   
   .experience .right .text .title {
@@ -1642,6 +1694,446 @@
   }
   
   .experience .right .message p{
+    display: none;
+  }
+
+  /* How it works */
+  .how-it-works {
+    display: flex;
+  }
+
+  .how-it-works .left {
+    background-image: url('../img/bg.png');
+    background-position: center center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: #F6F4F5;
+    height: 100vh;
+    width: 100%;
+  }
+
+  .how-it-works .right {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    position: absolute;
+    top: 4rem;
+    right: 0rem;
+    background-color: #ffffff;
+    width: 85vw;
+    height: 80vh;
+    overflow: auto;
+    padding-bottom: 1rem;
+    font-size: 13px;
+  }
+
+  .how-it-works .right .flex {
+    display: flex;
+  }
+
+  .how-it-works .right .text {
+    width: 100%;
+    padding: 1rem 2rem 1rem 1rem;
+    font-family: Nunito-Regular;
+    line-height: 1.5;
+    text-align: center;
+  }
+
+  .how-it-works .right .text .title {
+    font-size: 1.5rem;
+    width: 100%;
+    font-family: Nunito-SemiBold;
+    margin-bottom: 1rem;
+    color: #f0ac94;
+  }
+
+  .how-it-works .right .text .sub-title {
+    font-size: 1.2rem;
+    font-family: Nunito-SemiBold;
+  }
+
+  .how-it-works .right .links {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 50vh;
+    width: 40%;
+    margin-bottom: 1rem;
+  }
+
+  .how-it-works .right .links .link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    margin-left: -20%;
+  }
+
+  .how-it-works .right .links .link:hover .icon{
+    background-color: #f0ac94;
+    color: #F6F4F5;
+  } 
+
+  .how-it-works .right .links .link .icon {
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+    font-size: 3rem;
+    color: #f0ac94;
+  }
+
+  .how-it-works details {
+    background-color: #f0ac94;
+    color: white;
+  }
+
+  .how-it-works details summary {
+    outline-color: #f0ac94;
+    padding: 0.5rem;
+    margin: 1rem 0rem;
+    text-transform: uppercase;
+    font-family: Nunito-Bold;
+  }
+
+  .how-it-works .cta-btn {
+    border: solid 2px #f0ac94;
+    color: #f0ac94;
+    background-color: #f0ac9400;
+    text-decoration: none;
+    padding: 0.5rem 0rem;
+    text-transform: uppercase;
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin: 1rem auto;
+    font-family: Nunito-ExtraBold;
+  }
+
+  .how-it-works .cta-btn:hover {
+    background-color: #f0ac94;
+    border: solid 2px #f0ac94;
+    color: #ffffff;
+  }
+
+  .how-it-works .right .icons {
+    position: fixed;
+    right: 0rem;
+    padding: 1rem 0.5rem;
+    font-size: 12px;
+    height: 100vh;
+    top: 0rem;
+  }
+  
+  .how-it-works .right .icons .social {
+    display: flex;
+    flex-direction: column;
+    margin-top: 2.5rem;
+    font-size: 14px;
+  }
+  
+  .how-it-works .right .icons .social i {
+    margin-bottom: 1.5rem;
+  }
+
+  /* Gift Diary page */
+  .gift-diary {
+    display: block;
+    position: relative;
+  }
+  
+  .gift-diary .left {
+    background-image: url('../img/bg.png');
+    background-position: center center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: #F6F4F5;
+    height: 100vh;
+    width: 100%;
+  }
+  
+  .gift-diary .right {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    position: absolute;
+    top: 4rem;
+    right: 0rem;
+    background-color: #ffffff;
+    width: 85vw;
+    height: 80vh;
+    overflow: auto;
+    padding-bottom: 1rem;
+  }
+
+  .gift-diary .right .flex {
+    flex-direction: column;
+    padding: 0rem;
+    width: 100%;
+  }
+  
+  .gift-diary .right .text {
+    width: 100%;
+    padding: 1rem 2rem 1rem 1rem;
+    font-family: Nunito-Regular;
+    line-height: 1.2;
+    border-right: transparent;
+    font-size: 13px;
+  }
+  
+  .gift-diary .right .text .title {
+    font-size: 1.1rem;
+    width: 70%;
+    font-family: Nunito-ExtraBold;
+    margin-bottom: 0.5rem;
+  }
+
+  .gift-diary .right .text .sub-title {
+    font-size: 12px;
+    margin-bottom: 0.2rem;
+  }
+
+  .gift-diary .right .write-up {
+    font-size: 10px;
+  }
+  
+  .gift-diary .right .form {
+    width: 100%;
+    padding: 1rem 0rem 1rem 1.5rem;
+    font-size: 12px;
+  }
+  
+  .gift-diary .right .form form {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+  }
+  
+  .gift-diary .right .form form input, .gift-diary .right .form form select {
+    display: block;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    font-size: 12px;
+    width: 100%;
+    border: 1px solid #c5c5c5;
+  }
+  
+  .gift-diary .right .form form textarea {
+    min-height: 25vh;
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    border: 1px solid #c5c5c5;
+  }
+  
+  .gift-diary .right .form form legend {
+    color: #f0ac94;
+    font-family: Nunito-SemiBold;
+  }
+  
+  .gift-diary .right .form form fieldset {
+    border-color: #f0ac94;
+  }
+  
+  .gift-diary .right .form form input[type="submit"] {
+    width: 40%;
+    color: #ffffff;
+    background-color: #f0ac94;
+    border: transparent;
+    padding: 0.7rem;
+    margin-top: 1rem;
+  }
+  
+  .gift-diary .right .icons {
+    position: fixed;
+    right: 0rem;
+    padding: 1rem 0.5rem;
+    font-size: 12px;
+    height: 100vh;
+    top: 0rem;
+  }
+  
+  .gift-diary .right .icons .social {
+    display: flex;
+    flex-direction: column;
+    margin-top: 2.5rem;
+    font-size: 14px;
+  }
+  
+  .gift-diary .right .icons .social i {
+    margin-bottom: 1.5rem;
+  }
+  
+  .gift-diary .right .message {
+    background-color: #f8ddd4;
+    width: 60px;
+    height: 48px;
+    position: absolute;
+    bottom: -1rem;
+    right: 0.5rem;
+    display: flex;
+  }
+  
+  .gift-diary .right .message img{
+    width: 100%;
+    margin-right: 0rem;
+  }
+  
+  .gift-diary .right .message p{
+    display: none;
+  }
+
+  /* Say Hello page */
+  .say-hello {
+    display: block;
+    position: relative;
+  }
+  
+  .say-hello .left {
+    background-image: url('../img/bg.png');
+    background-position: center center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: #F6F4F5;
+    height: 100vh;
+    width: 100%;
+  }
+  
+  .say-hello .right {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    position: absolute;
+    top: 4rem;
+    right: 0rem;
+    background-color: #ffffff;
+    width: 85vw;
+    height: 80vh;
+    overflow: auto;
+    padding-bottom: 1rem;
+  }
+
+  .say-hello .right .flex {
+    flex-direction: column;
+    padding: 0rem 3rem 0rem 2rem;
+    width: 100%;
+    position: relative;
+  }
+
+  .say-hello .right .links {
+    text-align: center;
+  }
+  
+  .say-hello .right .text {
+    width: 100%;
+    padding: 1rem 2rem 1rem 1rem;
+    font-family: Nunito-Regular;
+    line-height: 1.2;
+    border-right: transparent;
+    font-size: 13px;
+  }
+  
+  .say-hello .right .text .title {
+    font-size: 1.1rem;
+    width: 70%;
+    font-family: Nunito-ExtraBold;
+    margin-bottom: 0.5rem;
+  }
+
+  .say-hello .right .text .sub-title {
+    font-size: 12px;
+    margin-bottom: 0.2rem;
+  }
+
+  .say-hello .right .write-up {
+    font-size: 10px;
+  }
+  
+  .say-hello .right .text form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .say-hello .right .text form input {
+    padding: 0.2rem;
+    margin-bottom: 0.7rem;
+    font-size: 10px;
+    border: 1px solid #c5c5c5;
+  }
+  
+  .say-hello .right .text form textarea {
+    min-height: 15vh;
+    margin-bottom: 0.5rem;
+    padding: 0.2rem;
+    font-size: 10px;
+    border: 1px solid #c5c5c5;
+  }
+  
+  .say-hello .right .text form input[type="submit"] {
+    width: 50%;
+    color: #ffffff;
+    background-color: #f0ac94;
+    border: transparent;
+    padding: 0.5rem;
+  }
+  
+  .say-hello .right .contact {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0rem;
+  }
+  
+  .say-hello .right .contact .info {
+    display: flex;
+    margin-bottom: 1rem;
+    font-size: 10px;
+  }
+  
+  .say-hello .right .contact .info .icon {
+    margin-right: 1rem;
+  }
+  
+  .say-hello .right .contact .info .icon .fa-phone-volume {
+    transform: rotate(-40deg);
+  }
+  
+  .say-hello .right .icons {
+    position: fixed;
+    right: 0rem;
+    padding: 1rem 0.5rem;
+    font-size: 12px;
+    height: 100vh;
+    top: 0rem;
+  }
+  
+  .say-hello .right .icons .social {
+    display: flex;
+    flex-direction: column;
+    margin-top: 2.5rem;
+    font-size: 14px;
+  }
+  
+  .say-hello .right .icons .social i {
+    margin-bottom: 1.5rem;
+  }
+  
+  .say-hello .right .message {
+    background-color: #f8ddd4;
+    width: 60px;
+    height: 48px;
+    position: absolute;
+    bottom: -1rem;
+    right: 0.5rem;
+    display: flex;
+  }
+  
+  .say-hello .right .message img{
+    width: 100%;
+    margin-right: 0rem;
+  }
+  
+  .say-hello .right .message p{
     display: none;
   }
 }

@@ -7,24 +7,31 @@
       <div class="flex">
         <div class="text">
           <p class="title">
-            {{ }}
-          </p>
-          <p class="bio">
-            Ceo mayers vision scope enterprise
-            <br>
-            lorem ipsum loremipsum
+            {{ allStories[page].title }}
           </p>
           <p class="featured">
             <i class="far fa-star"></i>
             Featured story
           </p>
           <p class="body">
-            
+            {{ allStories[page].body }}
           </p>
-          <a href="#" class="read-more">Read More</a>
+          <div class="pagination">
+            <button v-if='page > 0' @click="prevPage">
+              <i class="fas fa-angle-left"></i>
+            </button>
+            <span>{{ page + 1 }}</span>
+            <button v-if='page < allStories.length - 1' @click="nextPage">
+              <i class="fas fa-angle-right"></i>
+            </button>
+          </div>
         </div>
         <div class="image">
-          <img src="img/sit.jpg" alt="gifts">
+          <Carousel :per-page="1" :autoplay="true" :autoplayTimeout="3000" :loop="true">
+            <Slide v-for="(image, index) in allStories[page].images" :key="index">
+              <img :src="image" alt="gifts">
+            </Slide>
+          </Carousel>
         </div>
       </div>
       <div class="icons">
@@ -46,31 +53,28 @@
 </template>
 
 <script>
+import stories from '~/static/js/stories.js';
+import { Carousel, Slide } from 'vue-carousel';
+
 export default {
   layout: 'app',
+  components: {
+    Carousel,
+    Slide
+  },
   data() {
     return {
-      apiUrl: 'https://teelonis.com/wp-json/wp/v2/posts',
-      stories: [],
-      story: {}
+      page: 0,
+      allStories: stories
     }
   },
   methods: {
-    async getStories() {
-      console.log('in here');
-     await  this.$axios.get(this.apiUrl).then((res) => {
-        if (res) {
-          const stories = res.data;
-          this.$store.commit('setStories', stories);
-          this.stories = [...stories];
-          this.story = {...stories[0]};
-          console.log(this.story.title.rendered);
-        }
-      }).catch(err => console.log(err));
+    nextPage() {
+      this.page++;
+    },
+    prevPage() {
+      this.page--;
     }
-  },
-  created() {
-    this.getStories();
   },
   mounted() {
     const nav = document.querySelector('.main-nav');
